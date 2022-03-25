@@ -89,6 +89,7 @@ fabric.properties
 
 !.idea/codeStyles
 !.idea/runConfigurations
+!.idea/google-java-format.xml
 
 ### Java ###
 # Compiled class file
