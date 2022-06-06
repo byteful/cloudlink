@@ -2,7 +2,6 @@ package me.byteful.cloudlink.api.http;
 
 import kong.unirest.UnirestInstance;
 import me.byteful.cloudlink.api.http.request.WrappedHttpRequest;
-import me.byteful.cloudlink.api.http.response.WrappedHttpResponse;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -21,13 +20,13 @@ public class HttpManager implements AutoCloseable {
   }
 
   @NotNull
-  public <T extends WrappedHttpResponse> T sendRequest(@NotNull WrappedHttpRequest<T> request) {
-    return request.getResponse(unirest);
+  public <T> T sendRequest(@NotNull WrappedHttpRequest<T> request) {
+    return request.send(unirest);
   }
 
   @NotNull
   public File downloadFile(@NotNull String filename, @NotNull Path location) {
-    return unirest.get("https://cloudlink.byteful.me/api/files/{filename}")
+    return unirest.get("/files/{filename}")
       .routeParam("filename", filename)
       .asFile(location.toString(), StandardCopyOption.REPLACE_EXISTING)
       .getBody();
