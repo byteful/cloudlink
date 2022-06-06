@@ -1,0 +1,13 @@
+#
+# CloudLink v${version} by byteful#0001
+#
+
+#
+# This configuration will automatically be setup via a wizard on initial setup.
+#
+
+# Set this to true if you want to open the setup wizard on next cloudlink boot.
+setup_wizard: true
+
+# The API token that CloudLink will use to communicate with the control server.
+api_token: "PUT API TOKEN HERE OR PASTE IT INTO STARTUP INITIALIZATION"

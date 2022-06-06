@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'idea'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
 group 'me.byteful.cloudlink'
@@ -11,5 +12,15 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.konghq:unirest-java:3.13.7'
+    implementation 'com.konghq:unirest-object-mappers-gson:3.13.7'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.spongepowered:configurate-yaml:4.1.2'
+}
 
+shadowJar {
+    minimize()
+
+    archiveBaseName.set("CloudLink-API")
+    archiveClassifier.set("")
 }
